@@ -27,13 +27,17 @@ public class EmployeeController {
         return "OK";
     }
 
-    @GetMapping("/{employeeId}")
+    @GetMapping("/employees/{employeeId}")
     @ResponseBody
     public Employee getEmployee (@PathVariable Integer employeeId){
         return employeeService.getSpecificEmployee(employeeId);
     }
 
-
+    @DeleteMapping("/employees/{employeeId}")
+    public String removeEmployee (@PathVariable Integer employeeId){
+         employeeService.removeEmployee(employeeId);
+        return "Employee removed successfully";
+    }
 
 
 }
